@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <title>Ad Skipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Ad Skipper</h1>
+    <p class="lead">Mutes ads when they start and skips them the moment Skip appears.</p>
+
+    <div class="options-panel">
+      <button class="row" id="mute" type="button" role="switch" aria-checked="true">
+        <span class="row-text">
+          <span class="row-name">Mute ads</span>
+          <span class="row-sub">Restores your volume after</span>
+        </span>
+        <span class="switch-track"><span class="switch-lever"></span></span>
+      </button>
+      <button class="row" id="skip" type="button" role="switch" aria-checked="true">
+        <span class="row-text">
+          <span class="row-name">Auto skip</span>
+          <span class="row-sub">Clicks Skip as soon as it shows</span>
+        </span>
+        <span class="switch-track"><span class="switch-lever"></span></span>
+      </button>
+    </div>
+
+    <div class="terminal" id="terminal"><div class="terminal-line" id="count">Skipped: 0</div></div>
+  </main>
+
+  <footer class="site-footer">
+    <button class="foot-link" id="theme" type="button" aria-label="Toggle light or dark theme">
+      <span class="switch-track"><span class="switch-lever"></span></span>
+      <span>Theme</span>
+    </button>
+    <a class="foot-link" id="donate" href="https://example.com/donate" target="_blank" rel="noopener noreferrer">Donate</a>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
