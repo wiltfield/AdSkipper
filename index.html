@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate - AdSkipper</title>
+  <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20128%20128%22%3E%3Crect%20width=%22128%22%20height=%22128%22%20rx=%2218%22%20fill=%22%2300121e%22/%3E%3Cpath%20d=%22M32%2032L80%2064L32%2096Z%22%20fill=%22%23ffffcc%22/%3E%3Crect%20x=%2287%22%20y=%2232%22%20width=%2213%22%20height=%2264%22%20fill=%22%23ffffcc%22/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="128x128" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAC+klEQVR4nO3cTXLiMBRF4WuqV5CeZ1FZaBbFPGyBHhAVNNhG8p+kd883Tigq7/iSSTJoCx+f101eB2Uu52HtSyx/AY7eloUxlH8Th29bYQj5X8zh+5IZwinrxTh+fzJvNl8Jh49hZg2mF4DjxzFzy/EAOH48EzfN+x0AYb0GwNMf18htT+++AME83ZiPAHP3AHj6fTzcmgUwdwuAp9/P781ZAHMEYG5g/r2xAOYIwBwBmCMAcwRgjgDMEYA5AjBHAOYIwBwBmCMAcwRgjgDM/an9Bq4/3xr+ftV+G7u4/nwXf8/RP4smFmDJDwrbaCIA6RYBIRyvmQASIjhWcwFIrMGRmgwgIYL9NR2AxBrsrfkAEiLYRzcBSKzBHroKICGC7XQZgMQabKXbABIiWKf7ACTWYI0QASREUC5UABJrUCpcAAkR5AkbgEQEOUIHIPGR8E74ABIiGGcTgMQajLEKICGCO8sAJNYgsQ0gcY/APgDJew0I4IFjBATwxG0NCGCCSwQEMMNhDQggQ+QICCBT1DUggELRIiCABSKtAQGsECECAlghwj+2qP4fQnoU4fAJC1Ao0vElFiBbtMMnLECGqMeXWIBZkQ+fsAATHI4vsQAvXA6fsAAP3I4vsQCSPA+f2C+A8/El4wVwP3xiuQAc/85qATj8K5sF4Pjjwi8Ah58XegE4/nthA+D4ecJ9BHD4MqEWgOOXC7EAHH657heA46/T7QJw+G10uQAcfztdLQCH3143C8Dx99H8AnD4fTW9ABx/f00uAIc/TnMLwPGP1cwCcPg6mlgAjl/PoI/Pa+03gXqaWADUQwDmCMAcAZgjAHMEYI4AzBGAOQIwRwDmCMAcAZgjAHMnXc5D7TeBSi7ngQUwRwDmbgHwMeDn9+YsgLl7AKyAj4dbswDm/g+AFYjv6cavC0AEcY3clo8Ac+MBsALxTNx0egGIII6ZW+Ydmb8e6lPGQ5z3OwBr0J/Mm5UfljVoW+HDuvzJJoS2LFzpbaadGOrY4KP5H3ty2Rzlhi74AAAAAElFTkSuQmCC">
 <script>
   (function () {
     var saved = localStorage.getItem('theme');
@@ -893,10 +895,85 @@ body {
     text-decoration: none;
   }
 </style>
+<style>
+  /* ---------- views, footer links, back button ---------- */
+  [hidden] { display: none !important; }
+
+  a.foot-link { text-decoration: none; }
+
+  button.back-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+  }
+</style>
+<style>
+  /* ---------- about page: lists, sub-headings, inline code, links ---------- */
+  .about-section h3 {
+    font-family: "IBM Plex Serif", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .about-section h4 {
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin: 1rem 0 0.4rem;
+  }
+
+  .about-section p + p,
+  .about-section p + ul,
+  .about-section ul + p,
+  .about-section ol + p {
+    margin-top: 0.75rem;
+  }
+
+  .about-section ul,
+  .about-section ol {
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.45;
+    max-width: 65ch;
+    color: var(--text);
+    margin: 0;
+    padding-left: 1.4rem;
+  }
+
+  .about-section li + li {
+    margin-top: 0.35rem;
+  }
+
+  .about-section code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: color-mix(in srgb, var(--text) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+    border-radius: 4px;
+    padding: 0.05rem 0.35rem;
+    word-break: break-word;
+  }
+
+  .about-section a {
+    color: var(--accent);
+    text-underline-offset: 2px;
+  }
+
+  .about-section a:hover {
+    opacity: 0.8;
+  }
+</style>
 </head>
 <body class="op-page">
 
-  <main class="wrap about-wrap">
+  <main class="wrap about-wrap" id="donate-view">
     <h1 class="about-title">Support AdSkipper by Wiltfield</h1>
 
     <div class="about-content">
@@ -955,6 +1032,64 @@ body {
     </div>
   </main>
 
+  <main class="wrap about-wrap" id="about-view" hidden>
+    <a class="back-link" href="#">&larr; Back</a>
+    <h1 class="about-title">About AdSkipper by Wiltfield</h1>
+
+    <div class="about-content">
+
+      <section class="about-section">
+        <h2>What it does</h2>
+        <p>A browser extension for YouTube that mutes ads and clicks the Skip button as soon as it shows up. No more reaching for the mouse, and no more ad noise at night.</p>
+        <ul>
+          <li>Mutes the video as soon as an ad starts playing</li>
+          <li>Clicks the Skip button the moment it appears</li>
+          <li>Small popup with a light/dark theme toggle and a Donate button</li>
+        </ul>
+      </section>
+
+      <section class="about-section">
+        <h2>Install</h2>
+        <p>AdSkipper is not on the browser stores yet, so you add it manually. It takes about a minute.</p>
+
+        <h3>1. Download</h3>
+        <ol>
+          <li>On the <a href="https://github.com/wiltfield/AdSkipper" target="_blank" rel="noopener noreferrer">GitHub repo</a> page, click <strong>Code</strong> &gt; <strong>Download ZIP</strong>.</li>
+          <li>Extract the ZIP anywhere you like (keep the folder; the browser reads it from there).</li>
+          <li>Inside the extracted repo, find the folder named <code>AdSkipper by Wiltfield</code>. This is the extension folder, and it contains <code>manifest.json</code>.</li>
+        </ol>
+
+        <h3>2. Add it to your browser</h3>
+        <h4>Chrome, Brave, Edge and other Chromium browsers</h4>
+        <ol>
+          <li>Open the extensions page: <code>chrome://extensions</code> (Chrome), <code>brave://extensions</code> (Brave) or <code>edge://extensions</code> (Edge).</li>
+          <li>Turn on <strong>Developer mode</strong> (top right or bottom left, depending on the browser).</li>
+          <li>Click <strong>Load unpacked</strong> and select the <code>AdSkipper by Wiltfield</code> folder.</li>
+          <li>Pin the extension from the puzzle-piece menu if you want quick access to the popup.</li>
+        </ol>
+
+        <h4>Firefox</h4>
+        <ol>
+          <li>Open <code>about:debugging#/runtime/this-firefox</code>.</li>
+          <li>Click <strong>Load Temporary Add-on</strong>.</li>
+          <li>Select the <code>manifest.json</code> file inside the <code>AdSkipper by Wiltfield</code> folder.</li>
+        </ol>
+        <p>Firefox removes temporary add-ons when the browser closes, so you need to repeat these steps after each restart.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>Updating</h2>
+        <p>Download the ZIP again, replace your old folder with the new one, then click the reload icon on the extension's card in your browser's extensions page.</p>
+      </section>
+
+      <section class="about-section">
+        <h2>Support</h2>
+        <p>AdSkipper is free. If you find it useful, donations are welcome. Head back to the <a href="#">donate page</a>.</p>
+      </section>
+
+    </div>
+  </main>
+
   <footer class="site-footer">
     <button class="foot-link theme-toggle" type="button" id="theme-toggle" aria-pressed="false">
       Theme
@@ -964,6 +1099,8 @@ body {
         </span>
       </span>
     </button>
+    <a class="foot-link" href="#about">About</a>
+    <a class="foot-link" href="https://github.com/wiltfield/AdSkipper" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
   </footer>
 
 <script>
@@ -1039,6 +1176,21 @@ body {
 
     setupReveal('sol');
     setupReveal('trc');
+  })();
+</script>
+<script>
+  (function () {
+    var donateView = document.getElementById('donate-view');
+    var aboutView = document.getElementById('about-view');
+    function route() {
+      var about = location.hash === '#about';
+      donateView.hidden = about;
+      aboutView.hidden = !about;
+      document.title = about ? 'About - AdSkipper' : 'Donate - AdSkipper';
+      window.scrollTo(0, 0);
+    }
+    window.addEventListener('hashchange', route);
+    route();
   })();
 </script>
 </body>
